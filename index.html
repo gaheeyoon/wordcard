@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영어 단어장</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .word-card {
+            background-color: #fff;
+            padding: 30px;
+            width: 350px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            margin: 15px 0 10px;
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="word-card">
+    <img id="word-image" src="" alt="word-image">
+    <h2 id="english-word">단어</h2>
+    <p id="korean-meaning">뜻</p>
+    <audio id="word-audio" src=""></audio>
+    <p id="example-sentence">예문</p>
+    <audio id="sentence-audio" src=""></audio>
+
+    <div>
+        <button onclick="nextWord()">다음 단어</button>
+        <button onclick="toggleFlash()" id="flash-btn">플래시 시작</button>
+    </div>
+</div>
+
+<script>
+const words = [
+    { book: "0001", image: "./img/0001/blob.png", english: "blob", korean: "(둥글고) 커다란 덩어리, 생명체", wordAudio: "", example: "A blob is walking.", sentenceAudio: "" },
+    { book: "0001", image: "./img/0001/gift_shop.png", english: "gift shop", korean: "기념품 가게", wordAudio: "", example: "They see a gift shop.", sentenceAudio: "" },
+    { book: "0001", image: "./img/0001/inside.png", english: "inside", korean: "안으로, 내부에", wordAudio: "", example: "The blobs go inside.", sentenceAudio: "" },
+    { book: "0001", image: "./img/0001/tshirt.png", english: "T-shirt", korean: "티셔츠", wordAudio: "", example: "They get four T-shirts.", sentenceAudio: "" },
+    { book: "0001", image: "./img/0001/cap.png", english: "cap", korean: "모자, 캡", wordAudio: "", example: "They get four caps.", sentenceAudio: "" },
+    { book: "0001", image: "./img/0001/balloon.png", english: "balloon", korean: "풍선", wordAudio: "", example: "They get four balloons.", sentenceAudio: "" },
+    { book: "0001", image: "./img/0001/cup.png", english: "cup", korean: "컵", wordAudio: "", example: "They get four cups.", sentenceAudio: "" },
+    { book: "0001", image: "./img/0001/bag.png", english: "bag", korean: "가방, 봉지", wordAudio: "", example: "They get four bags.", sentenceAudio: "" },
+    { book: "0001", image: "./img/0001/teddy_bear.png", english: "teddy bear", korean: "곰 인형", wordAudio: "", example: "They get a teddy bear!", sentenceAudio: "" },
+    { book: "0001", image: "./img/0001/silly.png", english: "silly", korean: "바보 같은, 우스운", wordAudio: "", example: "Silly blobs!", sentenceAudio: "" },
+    { book: "0001", image: "./img/0001/good_bye.png", english: "good-bye", korean: "안녕, 잘 가", wordAudio: "", example: "Good-bye!", sentenceAudio: "" },
+    { book: "0001", image: "./img/0001/click.png", english: "Click!", korean: "(찰칵) 사진 찍는 소리", wordAudio: "", example: "Click! They take a picture!", sentenceAudio: "" },
+    { book: "0001", image: "./img/0001/picture.png", english: "picture", korean: "사진, 그림", wordAudio: "", example: "They take a picture!", sentenceAudio: "" }
+];
+
+let currentIndex = 0;
+let flashInterval;
+let flashRunning = false;
+
+function showWord(index) {
+    const word = words[index];
+    document.getElementById('word-image').src = word.image;
+    document.getElementById('english-word').innerText = word.english;
+    document.getElementById('korean-meaning').innerText = word.korean;
+    document.getElementById('example-sentence').innerText = word.example;
+}
+
+function nextWord() {
+    currentIndex = (currentIndex + 1) % words.length;
+    showWord(currentIndex);
+}
+
+function toggleFlash() {
+    const flashBtn = document.getElementById('flash-btn');
+    if (!flashRunning) {
+        flashInterval = setInterval(() => {
+            nextWord();
+        }, 2000);
+        flashBtn.innerText = '플래시 중지';
+    } else {
+        clearInterval(flashInterval);
+        flashBtn.innerText = '플래시 시작';
+    }
+    flashRunning = !flashRunning;
+}
+
+showWord(currentIndex);
+</script>
+
+</body>
+</html>
