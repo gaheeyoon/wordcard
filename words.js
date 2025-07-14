@@ -1,0 +1,22 @@
+const words = [
+    { image: "./img/0001/blob.png", english: "blob", korean: "(걸쭉한 액체의) 방울", example: "Here come the blobs!" },
+    { image: "./img/0001/gift.png", english: "gift", korean: "선물", example: "They see a gift shop." },
+    { image: "./img/0001/shop.png", english: "shop", korean: "상점, 가게", example: "They see a gift shop." },
+    { image: "./img/0001/gift_shop.png", english: "gift shop", korean: "선물 가게", example: "They see a gift shop." },
+    { image: "./img/0001/come.png", english: "come", korean: "(…쪽으로) 오다", example: "Here come the blobs!" },
+    { image: "./img/0001/see.png", english: "see", korean: "보다", example: "What do they see?" },
+    { image: "./img/0001/inside.png", english: "inside", korean: "안에, 안쪽에, 안으로", example: "The blobs go inside." },
+    { image: "./img/0001/get.png", english: "get", korean: "가지다, 받다, 얻다", example: "They get four T-shirts." },
+    { image: "./img/0001/tshirt.png", english: "T-shirt", korean: "티셔츠", example: "They get four T-shirts." },
+    { image: "./img/0001/cap.png", english: "cap", korean: "모자, 캡", example: "They get four caps." },
+    { image: "./img/0001/balloon.png", english: "balloon", korean: "풍선", example: "They get four balloons." },
+    { image: "./img/0001/cup.png", english: "cup", korean: "컵", example: "They get four cups." },
+    { image: "./img/0001/bag.png", english: "bag", korean: "가방, 봉지", example: "They get four bags." },
+    { image: "./img/0001/only.png", english: "only", korean: "단지, 오직", example: "But there are only three blobs." },
+    { image: "./img/0001/teddy_bear.png", english: "teddy bear", korean: "테디 베어, 곰 인형", example: "They get a teddy bear!" },
+    { image: "./img/0001/take_a_picture.png", english: "take a picture", korean: "사진을 찍다", example: "They take a picture!" },
+    { image: "./img/0001/silly.png", english: "silly", korean: "우스꽝스러운, 유치한", example: "Silly blobs!" },
+    { image: "./img/0001/good_bye.png", english: "good-bye", korean: "안녕, 안녕히 계세요 (헤어질 때 하는 인사)", example: "Good-bye!" },
+    { image: "./img/0001/click.png", english: "Click!", korean: "(찰칵) 사진 찍는 소리", example: "Click! They take a picture!" },
+    { image: "./img/0001/picture.png", english: "picture", korean: "사진, 그림", example: "They take a picture!" }
+];
