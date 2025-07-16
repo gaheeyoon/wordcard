@@ -61,7 +61,7 @@ function toggleFlash() {
     if (!flashRunning) {
         flashInterval = setInterval(() => {
             nextWord();
-        }, 1000);
+        }, 2000);
         flashBtn.innerText = '플래시 중지';
     } else {
         clearInterval(flashInterval);
