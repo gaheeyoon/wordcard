@@ -3,79 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>아들이 영어를 너무 싫어해서 엄마가 만든 영어 단어장</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            color: #333;
-        }
-
-        .word-card {
-            background-color: #fff;
-            padding: 30px;
-            width: 350px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        h2 {
-            margin: 15px 0 10px;
-            font-size: 24px;
-        }
-
-        p {
-            font-size: 16px;
-            margin: 10px 0;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            margin-top: 15px;
-            cursor: pointer;
-            border-radius: 25px;
-            font-size: 14px;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        .external-buttons button {
-            background-color: #008CBA;
-            margin: 5px;
-        }
-
-        .external-buttons button:hover {
-            background-color: #007bb5;
-        }
-
-    </style>
+    <title>윤서가 영어를 너무 싫어해서 엄마가 만든 영어 단어장</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="word-card">
     <img id="word-image" src="" alt="word-image">
     <h2 id="english-word">단어</h2>
-    <p id="korean-meaning">뜻</p>
+    <p id="korean-meaning">드시</p>
     <p id="example-sentence">예문</p>
 
     <div>
@@ -85,18 +21,30 @@
 </div>
 
 <div class="external-buttons">
-    <button onclick="location.href='https://www.youtube.com/watch?v=eb-ckBZxrjY'">동화 보러 가기</button>
-    <button onclick="location.href='https://www.littlefox.com/en/supplement/ebook/ajBnMmFpb1NBTytlQ0VlOEdPWVhsQT09'">동화책 보러 가기</button>
+    <button id="story-btn">동화 보러 가기</button>
+    <button id="storybook-btn">동화책 보러 가기</button>
 </div>
 
 <script src="words.js"></script>
+<script src="books.js"></script>
 <script>
+const urlParams = new URLSearchParams(window.location.search);
+let bookId = urlParams.get('id');
+
+// 파라미터가 없을 경우 books.js에서 가장 마지막 id 사용
+if (!bookId) {
+    const bookIds = Object.keys(books);
+    bookId = bookIds[bookIds.length - 1];
+}
+
+let currentWords = words.filter(word => word.id === bookId);
+
 let currentIndex = 0;
 let flashInterval;
 let flashRunning = false;
 
 function showWord(index) {
-    const word = words[index];
+    const word = currentWords[index];
     document.getElementById('word-image').src = word.image;
     document.getElementById('english-word').innerText = word.english;
     document.getElementById('korean-meaning').innerText = word.korean;
@@ -104,7 +52,7 @@ function showWord(index) {
 }
 
 function nextWord() {
-    currentIndex = (currentIndex + 1) % words.length;
+    currentIndex = (currentIndex + 1) % currentWords.length;
     showWord(currentIndex);
 }
 
@@ -122,7 +70,26 @@ function toggleFlash() {
     flashRunning = !flashRunning;
 }
 
-showWord(currentIndex);
+function setButtonLinks() {
+    const storyBtn = document.getElementById('story-btn');
+    const storybookBtn = document.getElementById('storybook-btn');
+
+    if(books[bookId]) {
+        storyBtn.onclick = () => location.href = books[bookId].storyUrl;
+        storybookBtn.onclick = () => location.href = books[bookId].storybookUrl;
+    } else {
+        storyBtn.disabled = true;
+        storybookBtn.disabled = true;
+    }
+}
+
+if(currentWords.length > 0) {
+    showWord(currentIndex);
+    setButtonLinks();
+} else {
+    document.querySelector('.word-card').innerHTML = "해당하는 단어장이 없습니다.";
+    document.querySelector('.external-buttons').style.display = 'none';
+}
 </script>
 
 </body>
