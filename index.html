@@ -20,18 +20,19 @@
     </div>
 </div>
 
-<div class="external-buttons">
+<div class="external-buttons" id="external-buttons">
     <button id="story-btn">동화 보러 가기</button>
     <button id="storybook-btn">동화책 보러 가기</button>
 </div>
 
 <script src="words.js"></script>
 <script src="books.js"></script>
+
 <script>
 const urlParams = new URLSearchParams(window.location.search);
 let bookId = urlParams.get('id');
 
-// 파라미터가 없을 경우 books.js에서 가장 마지막 id 사용
+// 파라미터 없을 경우 마지막 ID 사용
 if (!bookId) {
     const bookIds = Object.keys(books);
     bookId = bookIds[bookIds.length - 1];
@@ -54,14 +55,23 @@ function showWord(index) {
 function nextWord() {
     currentIndex = (currentIndex + 1) % currentWords.length;
     showWord(currentIndex);
+
+    const word = currentWords[currentIndex];
+    if (word.audio) {
+        const audio = new Audio(word.audio);
+        audio.play().catch(err => {
+            console.warn("Audio playback failed:", err);
+        });
+    }
 }
 
 function toggleFlash() {
     const flashBtn = document.getElementById('flash-btn');
     if (!flashRunning) {
+        nextWord(); // 첫 단어
         flashInterval = setInterval(() => {
             nextWord();
-        }, 2000);
+        }, 3000);
         flashBtn.innerText = '플래시 중지';
     } else {
         clearInterval(flashInterval);
@@ -73,13 +83,33 @@ function toggleFlash() {
 function setButtonLinks() {
     const storyBtn = document.getElementById('story-btn');
     const storybookBtn = document.getElementById('storybook-btn');
+    const externalButtons = document.getElementById('external-buttons');
 
-    if(books[bookId]) {
-        storyBtn.onclick = () => location.href = books[bookId].storyUrl;
-        storybookBtn.onclick = () => location.href = books[bookId].storybookUrl;
+    if (books[bookId]) {
+        const storyUrl = books[bookId].storyUrl;
+        const storybookUrl = books[bookId].storybookUrl;
+
+        let hasContent = false;
+
+        if (storyUrl) {
+            storyBtn.onclick = () => window.open(storyUrl, '_blank');
+            hasContent = true;
+        } else {
+            storyBtn.style.display = 'none';
+        }
+
+        if (storybookUrl) {
+            storybookBtn.onclick = () => window.open(storybookUrl, '_blank');
+            hasContent = true;
+        } else {
+            storybookBtn.style.display = 'none';
+        }
+
+        if (!hasContent) {
+            externalButtons.style.display = 'none';
+        }
     } else {
-        storyBtn.disabled = true;
-        storybookBtn.disabled = true;
+        externalButtons.style.display = 'none';
     }
 }
 
@@ -91,6 +121,5 @@ if(currentWords.length > 0) {
     document.querySelector('.external-buttons').style.display = 'none';
 }
 </script>
-
 </body>
 </html>
