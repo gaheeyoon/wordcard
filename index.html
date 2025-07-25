@@ -65,7 +65,10 @@ function nextWord() {
 
     const word = currentWords[currentIndex];
     if (word.audio) {
-        const audio = new Audio(word.audio);
+        const audio = new Audio();
+        audio.src = word.audio;
+        audio.currentTime = 0;
+        audio.load();
         audio.play().catch(err => {
             console.warn("Audio playback failed:", err);
         });
