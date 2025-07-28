@@ -61,5 +61,16 @@ const words = [
     { id: "wonbuk-01", image: "./img/wonbuk/01/middle.png", audio: "./audio/wonbuk/01/middle.mp3", english: "middle", korean: "중앙의, 중간의", example: "Put the ball in the middle." },
     { id: "wonbuk-01", image: "./img/wonbuk/01/tall.png", audio: "./audio/wonbuk/01/tall.mp3", english: "tall", korean: "키가 큰, 높은", example: "The tree is tall." },
     { id: "wonbuk-01", image: "./img/wonbuk/01/every.png", audio: "./audio/wonbuk/01/every.mp3", english: "every", korean: "모든, 모두", example: "I read every day." },
-    { id: "wonbuk-01", image: "./img/wonbuk/01/long.png", audio: "./audio/wonbuk/01/long.mp3", english: "long", korean: "긴, 오래, 오랫동안", example: "The river is long." }
+    { id: "wonbuk-01", image: "./img/wonbuk/01/long.png", audio: "./audio/wonbuk/01/long.mp3", english: "long", korean: "긴, 오래, 오랫동안", example: "The river is long." },
+    { id: "wonbuk-02", image: "./img/wonbuk/02/short.png", audio: "./audio/wonbuk/02/short.mp3", english: "short", korean: "짧은", example: "My hair is short." },
+    { id: "wonbuk-02", image: "./img/wonbuk/02/straight.png", audio: "./audio/wonbuk/02/straight.mp3", english: "straight", korean: "똑바른", example: "Draw a straight line." },
+    { id: "wonbuk-02", image: "./img/wonbuk/02/ahead.png", audio: "./audio/wonbuk/02/ahead.mp3", english: "ahead", korean: "앞에(로)", example: "Walk ahead." },
+    { id: "wonbuk-02", image: "./img/wonbuk/02/busy.png", audio: "./audio/wonbuk/02/busy.mp3", english: "busy", korean: "바쁜", example: "Dad is busy." },
+    { id: "wonbuk-02", image: "./img/wonbuk/02/full.png", audio: "./audio/wonbuk/02/full.mp3", english: "full", korean: "가득 찬", example: "The box is full." },
+    { id: "wonbuk-02", image: "./img/wonbuk/02/more.png", audio: "./audio/wonbuk/02/more.mp3", english: "more", korean: "더, 더 많이", example: "I want more juice." },
+    { id: "wonbuk-02", image: "./img/wonbuk/02/ready.png", audio: "./audio/wonbuk/02/ready.mp3", english: "ready", korean: "준비된", example: "Are you ready?" },
+    { id: "wonbuk-02", image: "./img/wonbuk/02/some.png", audio: "./audio/wonbuk/02/some.mp3", english: "some", korean: "약간의, 몇몇", example: "I have some books." },
+    { id: "wonbuk-02", image: "./img/wonbuk/02/today.png", audio: "./audio/wonbuk/02/today.mp3", english: "today", korean: "오늘", example: "It is hot today." },
+    { id: "wonbuk-02", image: "./img/wonbuk/02/favorite.png", audio: "./audio/wonbuk/02/favorite.mp3", english: "favorite", korean: "가장 좋아하는", example: "Pizza is my favorite food." }
+
 ];

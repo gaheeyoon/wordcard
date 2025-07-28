@@ -13,7 +13,6 @@ const books = {
     },
 
 
-    "wonbuk-01": {
-        
-    }
+    "wonbuk-01": { },
+    "wonbuk-02": { },
 };
