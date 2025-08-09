@@ -71,6 +71,15 @@ const words = [
     { id: "wonbuk-02", image: "./img/wonbuk/02/ready.png", audio: "./audio/wonbuk/02/ready.mp3", english: "ready", korean: "준비된, 사전에", example: "Are you ready?" },
     { id: "wonbuk-02", image: "./img/wonbuk/02/some.png", audio: "./audio/wonbuk/02/some.mp3", english: "some", korean: "몇몇, 일부, ~중에는", example: "I have some books." },
     { id: "wonbuk-02", image: "./img/wonbuk/02/today.png", audio: "./audio/wonbuk/02/today.mp3", english: "today", korean: "오늘, 현재, 지금", example: "It is hot today." },
-    { id: "wonbuk-02", image: "./img/wonbuk/02/favorite.png", audio: "./audio/wonbuk/02/favorite.mp3", english: "favorite", korean: "가장 좋아하는, 마음에 드는", example: "Pizza is my favorite food." }
-
+    { id: "wonbuk-02", image: "./img/wonbuk/02/favorite.png", audio: "./audio/wonbuk/02/favorite.mp3", english: "favorite", korean: "가장 좋아하는, 마음에 드는", example: "Pizza is my favorite food." },
+    { id: "wonbuk-03", image: "./img/wonbuk/03/song.png", audio: "./audio/wonbuk/03/song.mp3", english: "song", korean: "노래, 곡", example: "I like this song." },
+    { id: "wonbuk-03", image: "./img/wonbuk/03/we.png", audio: "./audio/wonbuk/03/we.mp3", english: "we", korean: "우리", example: "We are best friends." },
+    { id: "wonbuk-03", image: "./img/wonbuk/03/ball.png", audio: "./audio/wonbuk/03/ball.mp3", english: "ball", korean: "공, 볼", example: "The ball is under the table." },
+    { id: "wonbuk-03", image: "./img/wonbuk/03/bank.png", audio: "./audio/wonbuk/03/bank.mp3", english: "bank", korean: "은행, 강둑", example: "Let’s go to the bank." },
+    { id: "wonbuk-03", image: "./img/wonbuk/03/shopping.png", audio: "./audio/wonbuk/03/shopping.mp3", english: "shopping", korean: "쇼핑, 가게 구경", example: "Mom is shopping for clothes." },
+    { id: "wonbuk-03", image: "./img/wonbuk/03/together.png", audio: "./audio/wonbuk/03/together.mp3", english: "together", korean: "함께, 같이, 서로", example: "Let’s play together." },
+    { id: "wonbuk-03", image: "./img/wonbuk/03/stay.png", audio: "./audio/wonbuk/03/stay.mp3", english: "stay", korean: "머물다, 지내다", example: "Please stay here." },
+    { id: "wonbuk-03", image: "./img/wonbuk/03/again.png", audio: "./audio/wonbuk/03/again.mp3", english: "again", korean: "한 번 더, 다시", example: "Try it again." },
+    { id: "wonbuk-03", image: "./img/wonbuk/03/city.png", audio: "./audio/wonbuk/03/city.mp3", english: "city", korean: "도시, 시내, 도심", example: "I live in a big city." },
+    { id: "wonbuk-03", image: "./img/wonbuk/03/fun.png", audio: "./audio/wonbuk/03/fun.mp3", english: "fun", korean: "재미있는, 즐거운", example: "This game is so fun!" }
 ];
